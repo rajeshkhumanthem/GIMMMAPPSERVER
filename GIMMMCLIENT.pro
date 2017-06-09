@@ -33,3 +33,6 @@ else:unix: LIBS += -L$$PWD/../../GIMMMLIB/build-GIMMMLIB-Desktop_Qt_5_8_0_clang_
 
 INCLUDEPATH += $$PWD/../../GIMMMLIB/GIMMMLIB
 DEPENDPATH += $$PWD/../../GIMMMLIB/GIMMMLIB
+
+DISTFILES += \
+    config.ini
