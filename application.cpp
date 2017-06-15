@@ -1,14 +1,18 @@
 #include "application.h"
-#include "macros.h"
 
 #include <iostream>
 
 #include <QSettings>
 
+#define PRINT_JSON_DOC(out, jsondoc) \
+    QString str = jsondoc.toJson(QJsonDocument::Indented); \
+    out << str.toStdString() << std::endl;
+
 Application::Application()
 {
     start();
 }
+
 
 void Application::start()
 {
@@ -54,6 +58,7 @@ void Application::readConfigFile()
     }
 }
 
+
 void Application::setupPhantomStuff()
 {
     // setup signal handlers
@@ -76,12 +81,14 @@ void Application::setupPhantomStuff()
     __gimmmConn.connectToServer(__hostAddress, __hostPortNo, __sessionId);
 }
 
+
 void Application::handleConnectionStarted()
 {
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
     std::cout << "Connecting to Phantom server..." << std::endl;
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
+
 
 void Application::handleConnectionEstablished()
 {
@@ -90,12 +97,14 @@ void Application::handleConnectionEstablished()
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
 
+
 void Application::handleConnectionHandshakeStarted()
 {
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
     std::cout << "Starting GIMMM handshake.Sending LOGON request..." << std::endl;
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
+
 
 void Application::handleSessionEstablished()
 {
@@ -112,12 +121,14 @@ void Application::handleConnectionLost()
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
 
+
 void Application::handleConnectionShutdownStarted()
 {
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
     std::cout << "Shuting down connection to Phantom..." << std::endl;
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
+
 
 void Application::handleConnectionShutdownCompleted()
 {
@@ -126,6 +137,7 @@ void Application::handleConnectionShutdownCompleted()
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
 
+
 void Application::handleConnectionError(const QString& error)
 {
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
@@ -133,12 +145,14 @@ void Application::handleConnectionError(const QString& error)
     std::cout << "--------------------------------------------------------------------------------------------------"  << std::endl;
 }
 
+
 void Application::handleNewUpstreamMessage(const QJsonDocument& client_msg)
 {
     std::cout << "----------------------------START NEW UPSTREAM MESSAGE---------------------------------------------"  << std::endl;
     PRINT_JSON_DOC(std::cout, client_msg);
     std::cout << "----------------------------END UPSTREAM MESSAGE---------------------------------------------------"  << std::endl;
 }
+
 
 void Application::handleNewDownstreamRejectMessage(
     const QJsonDocument& client_msg,

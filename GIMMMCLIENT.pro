@@ -11,7 +11,9 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    application.cpp
+    application.cpp \
+    GIMMMLIB/gimmmconnection.cpp \
+    GIMMMLIB/message.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -25,14 +27,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 HEADERS += \
-    application.h
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../GIMMMLIB/build-GIMMMLIB-Desktop_Qt_5_8_0_clang_64bit-Debug/release/ -lGimmmeLib.1.0.0
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../GIMMMLIB/build-GIMMMLIB-Desktop_Qt_5_8_0_clang_64bit-Debug/debug/ -lGimmmeLib.1.0.0
-else:unix: LIBS += -L$$PWD/../../GIMMMLIB/build-GIMMMLIB-Desktop_Qt_5_8_0_clang_64bit-Debug/ -lGimmmeLib.1.0.0
-
-INCLUDEPATH += $$PWD/../../GIMMMLIB/GIMMMLIB
-DEPENDPATH += $$PWD/../../GIMMMLIB/GIMMMLIB
+    application.h \
+    GIMMMLIB/gimmmconnection.h \
+    GIMMMLIB/message.h
 
 DISTFILES += \
     config.ini
