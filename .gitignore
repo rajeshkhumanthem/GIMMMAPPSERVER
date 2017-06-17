@@ -34,4 +34,8 @@
 # qt meta files
 *.pro.user
 Makefile
+moc_*
+*swp
+*GimmmAppServer
+
 

@@ -4,7 +4,7 @@ QT -= gui
 
 CONFIG += c++11
 
-TARGET = GIMMMCLIENT
+TARGET = GimmmAppServer
 CONFIG += console
 CONFIG -= app_bundle
 
