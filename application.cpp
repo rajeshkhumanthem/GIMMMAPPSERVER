@@ -27,7 +27,17 @@ void Application::start()
 void Application::readConfigFile()
 {
     std::cout << "Reading config file..." << std::endl;
-    QSettings ini("./config.ini", QSettings::IniFormat);
+    QString filename;
+
+    if (QFileInfo::exists("./config.copy.ini"))
+    {
+        filename = "./config.copy.ini";
+    }else
+    {
+        filename = "./config.ini";
+    }
+    QSettings ini(filename, QSettings::IniFormat);
+
 
     //phantom port no.
     __hostPortNo = ini.value("GIMMMSERVER_SECTION/port_no", 0).toInt();
