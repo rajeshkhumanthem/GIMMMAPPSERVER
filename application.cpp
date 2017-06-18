@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include <QSettings>
+#include <QFileInfo>
 
 #define PRINT_JSON_DOC(out, jsondoc) \
     QString str = jsondoc.toJson(QJsonDocument::Indented); \
