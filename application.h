@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "GIMMMLIB/gimmmconnection.h"
+#include "GIMMMAPPLIB/gimmmconnection.h"
 
 #include <QObject>
 #include <QHostAddress>
