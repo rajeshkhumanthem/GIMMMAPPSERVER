@@ -1,10 +1,10 @@
 #include <QCoreApplication>
 
-#include "application.h"
+#include "myfcmapplication.h"
 int main(int argc, char *argv[])
 {
   QCoreApplication a(argc, argv);
-  Application app;
+  MyFcmApplication app;
 
   return a.exec();
 }
