@@ -37,6 +37,6 @@ Makefile
 moc_*
 *swp
 *GimmmAppServer
-*copy.ini
+config.ini
 
 
