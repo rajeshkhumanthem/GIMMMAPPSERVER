@@ -38,5 +38,6 @@ moc_*
 *swp
 *gimmmappserver
 config.ini
+.qmake.stash
 
 
